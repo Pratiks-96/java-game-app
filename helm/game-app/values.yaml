@@ -1,5 +1,5 @@
 image:
-  repository: pratik6958/game-app:latest
+  repository: pratik6958/game-app:v1
 
 service:
   type: NodePort
