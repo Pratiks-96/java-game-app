@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: genai-devops
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Pratiks-96/java-game-app.git
+    targetRevision: main
+    path: helm/game-app
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
